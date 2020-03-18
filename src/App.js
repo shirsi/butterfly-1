@@ -38,7 +38,7 @@ class App extends React.Component {
     this.state = {
       posts:[],
       username:'',
-      comments:''
+      comments:'',
       post: null,
       signup: false
     }
