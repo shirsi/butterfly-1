@@ -142,7 +142,8 @@ class Home extends React.Component {
          const copyPosts = [...this.state.posts]
          copyPosts[foundPostIndex] = updatedPost
          this.setState({
-           posts: copyPosts
+           posts: copyPosts,
+           post: updatedPost,
          })
        }catch(e){
          console.error(e);
