@@ -47,10 +47,10 @@ class Signin extends Component {
       let data = await response.json()
       console.log(data);
       this.toggleSignin()
-      this.handleSignin(data)
+      this.handleSignin(data.username)
       console.log(data)
       this.setState({
-        username:'',
+        username:this.state.username,
         password:'',
       })
 
