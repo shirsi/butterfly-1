@@ -1,6 +1,15 @@
 import React from 'react'
 import Comment from './Comment'
 class Show extends React.Component {
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     post: this.props.post,
+  //
+  //   }
+  //
+  //   // this.toggleShow = this.toggleShow.bind(this)
+  // }
 
   render () {
 
