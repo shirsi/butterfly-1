@@ -17,7 +17,7 @@ if(process.env.NODE_ENV === 'development'){
 
 else {
 
- baseURL = 'https://butterfly-server-1.herokuapp.com/'
+ baseURL = 'https://butterfly-server-1.herokuapp.com'
 }
 
 console.log(baseURL);
