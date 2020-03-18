@@ -15,10 +15,10 @@ if(process.env.NODE_ENV === 'development'){
   baseURL = 'http://localhost:3003'
 }
 
-// else {
-//
-//  baseURL = ''
-// }
+else {
+
+ baseURL = 'https://butterflyeffect-1.herokuapp.com/'
+}
 
 console.log(baseURL);
 
