@@ -5,17 +5,27 @@ class Signin extends Component {
     this.state = {
       username:'',
       password:'',
-      signin: true
+      signin: false
     }
+    this.handleSignin = this.handleSignin.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleSignin = this.toggleSignin.bind(this)
   }
+  handleSignin(user){
+    this.setState({
+      username: user
+    })
+    console.log(this.state.username)
+
+  }
+
   toggleSignin(){
     this.setState({
       signin: !this.state.signin
     })
   }
+
   handleChange(event){
     this.setState({
       [event.currentTarget.id]: event.currentTarget.value
@@ -35,13 +45,15 @@ class Signin extends Component {
         }
       })
       let data = await response.json()
-      this.props.handleSignin(data.username)
-
+      console.log(data);
+      this.toggleSignin()
+      this.handleSignin(data)
       console.log(data)
       this.setState({
         username:'',
         password:'',
       })
+
     }catch(e){
       console.error(e);
     }
@@ -51,12 +63,12 @@ class Signin extends Component {
       <div>
       {
         this.state.signin
-        ?  <button onClick={this.toggleSignin}>Sign in</button>
+        ?  <h1>Welcome {this.state.username} !</h1>
         :
         <form onSubmit={
           this.handleSubmit
         }>
-          <label htmlFor="username">Userame</label>
+          <label htmlFor="username">Username</label>
           <input type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} placeholder="username"/>
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="password"/>
