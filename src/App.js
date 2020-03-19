@@ -300,8 +300,8 @@ class App extends React.Component {
   return (
     <Router>
 
-    <div className="App">
         <Navigation/>
+    <div className="main">
         <Route path="/" exact component={Home}/>
         <Route path="/" exact component={Discover}/>
         <Route path="/login" render={(props) => <Signin {...props} baseURL={baseURL}/>}/>
