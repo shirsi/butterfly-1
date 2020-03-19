@@ -1,6 +1,7 @@
 import React from 'react'
 import New from './New.js'
-import Post from './Post.js'
+// import Post from './Post.js'
+import Update from './Update'
 // import Signup from './Signup'
 // import Signin from './Signin'
 import Show from './Show'
@@ -36,7 +37,8 @@ class Home extends React.Component {
     this.state = {
       posts:[],
       username:'',
-      post: null
+      post: null,
+      showForm: true
     }
     this.handleAddPost = this.handleAddPost.bind(this)
     this.deletePost = this.deletePost.bind(this)
@@ -45,6 +47,7 @@ class Home extends React.Component {
     this.handleSignin = this.handleSignin.bind(this)
     this.handleUpdateComments = this.handleUpdateComments.bind(this)
     this.toggleLikes = this.toggleLikes.bind(this)
+    this.toggleForm = this.toggleForm.bind(this)
 
 
     // this.getCurrentUser = this.getCurrentUser.bind(this)
@@ -254,6 +257,13 @@ class Home extends React.Component {
       }
     }
 
+
+    toggleForm(){
+      this.setState({
+        showForm : !this.state.showForm
+      })
+    }
+
   render(){
   return (
     <div className="App">
@@ -272,65 +282,96 @@ class Home extends React.Component {
       <New baseURL={baseURL} handleAddPost={this.handleAddPost}/>
 
         {
+          this.state.showForm
+          ?
+            <div>
+
+        {
             this.state.posts.map(post =>{
               return(
 
 
 
 
-                <div>
 
-                  {post.image ? (
-                              <img src={post.image}></img>
-                            ) : (
-                              ""
+              <div>
+
+                      {post.image ? (
+                                  <img src={post.image}></img>
+                                ) : (
+                                  ""
+                                )}
+
+                                {post.video ? (
+                                  <iframe
+                                    width="560"
+                                    height="315"
+                                    src={`${post.video}?autoplay=1`}
+                                    frameBorder="0"
+                                  ></iframe>
+                                ) : (
+                                  ""
+
                             )}
+                        <div>
+                          <div class= "thoughts">
+                      <h2 onClick={()=>this.getPost(post)}>{post.title}</h2>
+                        <div onClick={() => {
+                          this.toggleLikes(post)
+                        }}>{
+                          post.likes? '❤️': '🤍'
+                        }
+                        </div>
+                        </div>
+                        <Show
+                        post={post} handleUpdateComments={this.handleUpdateComments}/>
 
-                            {post.video ? (
-                              <iframe
-                                width="560"
-                                height="315"
-                                src={`${post.video}?autoplay=1`}
-                                frameBorder="0"
-                              ></iframe>
-                            ) : (
-                              ""
-
-                        )}
-                    <div>
-                      <div class= "thoughts">
-                  <h2 onClick={()=>this.getPost(post)}>{post.title}</h2>
-                    <div onClick={() => {
-                      this.toggleLikes(post)
-                    }}>{
-                      post.likes? '❤️': '🤍'
-                    }
                     </div>
-                    </div>
-                    <Show
-                    post={post} handleUpdateComments={this.handleUpdateComments}/>
 
-                </div>
+                      <button type="button" class="btn btn-dark" onClick= {() => {
+                        this.toggleForm()
+                        this.getPost(post)
+                      }}>Update</button>
 
-                  <button onClick={() => {
-                    this.deletePost(post._id)
-                  }}>delete</button>
-                  <Post post={post} handleUpdatePost={this.handleUpdatePost}/>
+                      <button onClick={() => {
+                        this.deletePost(post._id)
+                      }}>delete</button>
 
 
-                </div>
-              )}
+
+                  </div>
+                      )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             )}
-            {this.state.post
-              ? <Show
-              post={this.state.post} handleUpdateComments={this.handleUpdateComments}/>
-              : null}
+          </div>
 
+            :
+
+            <Update handleUpdatePost={this.handleUpdatePost}
+            post={this.state.post}
+            toggleForm={this.toggleForm}/>
+
+
+          }
 
 
 
     </div>
-  )}
+  )
+  }
 }
 
 

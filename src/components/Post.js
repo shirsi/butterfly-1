@@ -5,7 +5,7 @@ class Post extends Component {
     super(props)
     this.state = {
       _id: this.props.post._id,
-      showForm: false
+      showForm: true
     }
     this.toggleForm = this.toggleForm.bind(this)
   }
@@ -19,15 +19,65 @@ class Post extends Component {
       <div>
         {
           this.state.showForm
-          ? <Update handleUpdatePost={this.props.handleUpdatePost}
+          ?
+          (<div>
+
+            {post.image ? (
+                        <img src={post.image}></img>
+                      ) : (
+                        ""
+                      )}
+
+                      {post.video ? (
+                        <iframe
+                          width="560"
+                          height="315"
+                          src={`${post.video}?autoplay=1`}
+                          frameBorder="0"
+                        ></iframe>
+                      ) : (
+                        ""
+
+                  )}
+              <div>
+                <div class= "thoughts">
+            <h2 onClick={()=>this.getPost(post)}>{post.title}</h2>
+              <div onClick={() => {
+                this.toggleLikes(post)
+              }}>{
+                post.likes? '❤️': '🤍'
+              }
+              </div>
+              </div>
+              <Show
+              post={post} handleUpdateComments={this.handleUpdateComments}/>
+
+          </div>
+
+            <button onClick={() => {
+              this.deletePost(post._id)
+            }}>delete</button>
+
+
+
+          </div>)
+          :
+
+          <Update handleUpdatePost={this.props.handleUpdatePost}
           post={this.props.post}
           toggleForm={this.toggleForm}/>
-          :<h3>{" "}</h3>
+
+
+
+
+
+
 
         }
 
-        <button type="button" class="btn btn-dark" onClick={this.toggleForm}>Update</button>
+
       </div>
+      <button type="button" class="btn btn-dark" onClick={this.toggleForm}>Update</button>
     )
   }
 }
