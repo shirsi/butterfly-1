@@ -17,8 +17,7 @@ if(process.env.NODE_ENV === 'development'){
 
 else {
 
- baseURL = 'https://git.heroku.com/butterfly-backend-server.git
-'
+ baseURL = 'https://git.heroku.com/butterfly-backend-server.git'
 }
 
 console.log(baseURL);
