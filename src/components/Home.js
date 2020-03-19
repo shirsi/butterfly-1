@@ -293,6 +293,7 @@ class Home extends React.Component {
                 <button onClick={() => this.toggleShow()}>View Post</button>
                 {this.state.show ? (
                   <Show
+                    show={this.state.show}
                     post={post}
                     handleUpdateComments={this.handleUpdateComments}
                   />
