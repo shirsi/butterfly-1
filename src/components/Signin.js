@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+
+import Home from './Home'
 class Signin extends Component {
   constructor(props){
     super(props)
@@ -63,7 +65,10 @@ class Signin extends Component {
       <div>
       {
         this.state.signin
-        ?  <h1>Welcome {this.state.username} !</h1>
+        ?  <div>
+        <h1>Welcome {this.state.username} !</h1>
+        <div><Home /></div>
+        </div>
         :
         <form onSubmit={
           this.handleSubmit
