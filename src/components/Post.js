@@ -25,7 +25,8 @@ class Post extends Component {
           :<h3>{" "}</h3>
 
         }
-        <button onClick={this.toggleForm}>Update Me!</button>
+
+        <button type="button" class="btn btn-dark" onClick={this.toggleForm}>Update</button>
       </div>
     )
   }
