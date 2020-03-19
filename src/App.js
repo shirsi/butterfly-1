@@ -1,9 +1,13 @@
 import React from 'react'
-import New from './components/New.js'
-import Post from './components/Post.js'
+// import New from './components/New.js'
+// import Post from './components/Post.js'
 import Signup from './components/Signup'
-import Signin from './components/Signin'
-import Show from './components/Show'
+import Signin from './components/Signin.js'
+// import Show from './components/Show'
+import Home from './components/Home.js'
+import Discover from './components/Discover.js'
+import Navigation from './components/Navigation.js'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 /*
 ********************************************************
           Define
@@ -15,24 +19,21 @@ if(process.env.NODE_ENV === 'development'){
   baseURL = 'http://localhost:3003'
 }
 
-else {
+// // else {
+// //
+// //  baseURL = ''
+// // }
 
- baseURL = 'https://butterfly-server-1.herokuapp.com'
-}
-
-console.log(baseURL);
-
-
-
-
-/*
-********************************************************
-          Begin Class
-********************************************************
-*/
+// console.log(baseURL);
+// /*
+// ********************************************************
+//           Begin Class
+// ********************************************************
+// */
 
 class App extends React.Component {
 
+<<<<<<< HEAD
   constructor(props){
     super(props)
     this.state = {
@@ -306,6 +307,282 @@ class App extends React.Component {
     <div className="App container">
 
     <Signup baseURL={baseURL}/>
+=======
+//   constructor(props){
+//     super(props)
+//     this.state = {
+//       posts:[],
+//       username:'',
+//       comments:'',
+//       post: null,
+//       signup: false
+//     }
+//     this.handleAddPost = this.handleAddPost.bind(this)
+//     this.deletePost = this.deletePost.bind(this)
+//     this.getPosts = this.getPosts.bind(this)
+//     this.handleUpdatePost = this.handleUpdatePost.bind(this)
+//     // this.handleSignin = this.handleSignin.bind(this)
+//     this.toggleLikes = this.toggleLikes.bind(this)
+//     // this.handleUpdateComments = this.handleUpdateComments.bind(this)
+//     this.logoutUser = this.logoutUser.bind(this)
+//     // this.getCurrentUser = this.getCurrentUser.bind(this)
+//   }
+
+
+
+// /*
+//   ********************************************************
+//         WAITS FOR BROWSER BEFORE GRABS INFO FROM SERVER
+//     ********************************************************
+//     */
+
+//     componentDidMount(){
+//       this.getPosts()
+//       this.getSession()
+//       // this.getCurrentUser()
+//     }
+
+//     /*
+//      ********************************************************
+//                 GRABS POST FROM SERVER
+//      ********************************************************
+//      */
+
+
+
+//     async getSession(){
+//       try {
+//         let response = await fetch(`${baseURL}/sessions`)
+
+//         let data = await response.json()
+//         console.log(data)
+
+//         this.setState({
+//           session: data
+//         })
+//       } catch(e){
+//         console.error(e);
+//       }
+//     }
+
+
+
+
+
+//    /*
+//    ********************************************************
+//               GRABS POST FROM SERVER
+//    ********************************************************
+//    */
+
+//         async getPosts(){
+//           try {
+//             let response = await fetch(`${baseURL}/butterfly`)
+
+//             let data = await response.json()
+//             console.log(data)
+
+//             this.setState({
+//               posts: data
+//             })
+//           } catch(e){
+//             console.error(e);
+//           }
+//         }
+
+//         getPost(post){
+//           this.setState({post: post})
+//           console.log(this.state.post);
+//         }
+
+//      /*
+//        ********************************************************
+//                    ADDS NEW POST
+//        ********************************************************
+//        */
+
+//         handleAddPost (post){
+//           const copyPosts = [post, ...this.state.posts]
+//           console.log(copyPosts);
+//           this.setState({
+//             posts: copyPosts,
+//             title:  '',
+//             media: '',
+//             caption: '',
+//             comments:''
+//           })
+//         }
+
+
+
+
+
+//        /*
+//        ********************************************************
+//                  Comments
+//        ********************************************************
+//        */
+//       //  async handleUpdateComments(event, post, comment){
+//       //    event.preventDefault()
+//       //    console.log(post._id);
+//       //    let copyComments = [...this.state.post.comments]
+//       //    console.log(copyComments);
+//       //    copyComments.push(comment)
+//       //    try{
+//       //      let response = await fetch(`${baseURL}/butterfly/${post._id}`,{
+//       //        method:'PUT',
+//       //        body: JSON.stringify({
+//       //          comments: copyComments
+//       //        }),
+//       //        headers:{
+//       //          'Content-Type': 'application/json'
+//       //        }
+//       //      })
+//       //      let updatedPost = await response.json()
+
+//       //      const foundPostIndex = this.state.posts.findIndex(foundPost => foundPost._id === post._id)
+//       //      const copyPosts = [...this.state.posts]
+//       //      copyPosts[foundPostIndex].comments = updatedPost.comments
+//       //      console.log(copyPosts[foundPostIndex]);
+//       //      this.setState({
+//       //        posts: copyPosts,
+//       //        post:updatedPost
+//       //      })
+//       //    }catch(error){
+//       //      console.error(error);
+//       //    }
+//       //  }
+//        /*
+//      ********************************************************
+//               update POSTS
+//      ********************************************************
+//      */
+//      async handleUpdatePost(event, post){
+//        event.preventDefault()
+//        console.log(post._id);
+//        try{
+//          let response = await fetch(`${baseURL}/butterfly/${post._id}`,{
+//            method:'PUT',
+//            body: JSON.stringify(post),
+//            headers:{
+//              'Content-Type': 'application/json'
+//            }
+//          })
+//          let updatedPost = await response.json()
+//          const foundPostIndex = this.state.posts.findIndex(foundPost => foundPost._id === post._id)
+//          const copyPosts = [...this.state.posts]
+//          copyPosts[foundPostIndex] = updatedPost
+//          this.setState({
+//            posts: copyPosts,
+
+//          })
+//        }catch(error){
+//          console.error(error);
+//        }
+//      }
+
+
+
+
+//      /*
+//     ********************************************************
+//             Update likes POSTS
+//     ********************************************************
+//     */
+
+//     async toggleLikes (post){
+//          // console.log(post)
+//          try {
+//            let response = await fetch( `${baseURL}/butterfly/${post._id}`, {
+//              method: 'PUT',
+//              body: JSON.stringify({likes: post.likes + 1}),
+//              headers:{
+//                'Content-type': 'application/json'
+//              }
+//            })
+
+
+//            let updatedPost =  await response.json()
+
+//            // console.log(updatedPost)
+
+//            const foundPost = this.state.posts.findIndex(postFound=>
+//              postFound._id === post._id
+//            )
+//            // console.log(foundPost);
+
+//          const copyPosts = [...this.state.posts]
+//          // console.log(copyPosts);
+//          copyPosts[foundPost].likes = updatedPost.likes
+
+//          // console.log(updatedPost);
+//          this.setState({
+//            posts: copyPosts
+//          })
+
+//        }catch(e){
+//          console.error(e)
+//        }
+//        }
+//        /*
+//      ********************************************************
+//                Delete POSTS
+//      ********************************************************
+//      */
+
+//      async deletePost(id){
+//        console.log(`deleted post:${baseURL}/butterfly/${id}`)
+
+//        try {
+//          let response = await fetch(`${baseURL}/butterfly/${id}`, {
+//            method: 'DELETE'
+//          })
+//          let data = await response.json()
+//          const deletedPost = this.state.posts.findIndex(post =>
+//          post._id === id)
+//          const copyPosts = [...this.state.posts]
+//          copyPosts.splice(deletedPost, 1)
+//          this.setState({
+//            posts: copyPosts
+//          })
+//        } catch(e){
+//          console.error(e);
+//        }
+//      }
+//      /*
+//    ********************************************************
+//              Delete USERS
+//    ********************************************************
+//    */
+//      async logoutUser(){
+//       try{
+//          let response = await fetch(`${baseURL}/sessions`,{
+//            method:'DELETE'
+//          })
+//          let data = await response
+//          console.log(data)
+//          this.setState({
+//            username:'',
+//            password:'',
+//            signup:false
+//          })
+//        }catch(e){
+//          console.error(e);
+//        }
+//      }
+
+  render(){
+  return (
+    <Router>
+
+        <Navigation/>
+    <div className="main">
+        <Route path="/" exact component={Home}/>
+        <Route path="/" exact component={Discover}/>
+        <Route path="/login" render={(props) => <Signin {...props} baseURL={baseURL}/>}/>
+        <Route path="/signup" render={(props) => <Signup {...props} baseURL={baseURL}/>}/>
+    {/* <Signup baseURL={baseURL}/>
+>>>>>>> 99350cf7a28b7465e366c5ee4b5275e36d0e7fd8
     {
       this.state.username
       ?
@@ -350,8 +627,14 @@ class App extends React.Component {
             {this.state.post
               ? <Show
               post={this.state.post} handleUpdateComments={this.handleUpdateComments}/>
+<<<<<<< HEAD
 
             : null}
+=======
+              : null}*/}
+    </div>
+    </Router>
+>>>>>>> 99350cf7a28b7465e366c5ee4b5275e36d0e7fd8
 
   )}
   
