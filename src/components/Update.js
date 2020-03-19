@@ -31,6 +31,9 @@ class Update extends Component{
   }
   render(){
     return(
+
+
+
       <div>
         <h1>Update Form</h1>
         <form onSubmit={
@@ -40,19 +43,29 @@ class Update extends Component{
           }
         }>
 
+
+
+        <div class="form-group">
           <label htmlFor="title">title</label>
-          <input type="text" id="title" name="title"  onChange={this.handleChange}  value={this.state.title}/>
+          <input class="form-control" type="text" id="title" name="title"  onChange={this.handleChange}  value={this.state.title}/>
+            </div>
 
+
+        <div class="form-group">
           <label htmlFor="image">image</label>
-          <input type="text" id="image" name="image" onChange={this.handleChange} value={this.state.image} />
+          <input  class="form-control" type="text" id="image" name="image" onChange={this.handleChange} value={this.state.image} />
+          </div>
 
+        <div class="form-group">
           <label htmlFor="video">video</label>
-          <input type="text" id="video" name="video" onChange={this.handleChange} value={this.state.video} placeholder="upload your video"/>
+          <input  class="form-control" type="text" id="video" name="video" onChange={this.handleChange} value={this.state.video} placeholder="upload your video"/>
+            </div>
 
-          <label htmlFor="caption">caption</label>
-          <input type="text" id="caption" name="caption" onChange={this.handleChange} value={this.state.caption} placeholder="put your caption"/>
-
-          <input type="submit" value="submit"/>
+        <div class="form-group">
+          <label  htmlFor="caption">caption</label>
+          <input class="form-control"type="text" id="caption" name="caption" onChange={this.handleChange} value={this.state.caption} placeholder="put your caption"/>
+            </div>
+          <input class="form-control"type="submit" value="submit"/>
         </form>
       </div>
     )
