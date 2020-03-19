@@ -46,7 +46,7 @@ class App extends React.Component {
     this.deletePost = this.deletePost.bind(this)
     this.getPosts = this.getPosts.bind(this)
     this.handleUpdatePost = this.handleUpdatePost.bind(this)
-    this.getSession = this.getSession.bind(this)
+    // this.getSession = this.getSession.bind(this)
     this.handleSignin = this.handleSignin.bind(this)
     this.toggleLikes = this.toggleLikes.bind(this)
     this.handleUpdateComments = this.handleUpdateComments.bind(this)
@@ -64,7 +64,7 @@ class App extends React.Component {
 
     componentDidMount(){
       this.getPosts()
-      this.getSession()
+      // this.getSession()
       // this.getCurrentUser()
     }
 
@@ -75,22 +75,22 @@ class App extends React.Component {
      */
 
 
-
-    async getSession(){
-      try {
-        let response = await fetch(`${baseURL}/sessions`)
-
-        let data = await response.json()
-        console.log(data)
-
-        this.setState({
-          session: data
-        })
-      } catch(e){
-        console.error(e);
-      }
-    }
-
+    //
+    // async getSession(){
+    //   try {
+    //     let response = await fetch(`${baseURL}/sessions`)
+    //
+    //     let data = await response.json()
+    //     console.log(data)
+    //
+    //     this.setState({
+    //       session: data
+    //     })
+    //   } catch(e){
+    //     console.error(e);
+    //   }
+    // }
+    //
 
 
 
@@ -303,7 +303,7 @@ class App extends React.Component {
 
   render(){
   return (
-    <div className="App">
+    <div className="App container">
 
     <Signup baseURL={baseURL}/>
     {
@@ -321,6 +321,8 @@ class App extends React.Component {
       baseURL={baseURL}
       username={this.state.username}/>
     }
+
+
       <button onClick={
         this.signOutUser
       }>Sign Out</button>
@@ -348,9 +350,12 @@ class App extends React.Component {
             {this.state.post
               ? <Show
               post={this.state.post} handleUpdateComments={this.handleUpdateComments}/>
-              : null}
-    </div>
+
+            : null}
+
   )}
+  
+
 }
 
 export default App;
