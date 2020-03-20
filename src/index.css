@@ -12,7 +12,9 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-
+h2{
+  color: white;
+}
 
 .func-button{
   padding-top: 2em;
@@ -25,16 +27,23 @@ code {
     monospace;
 }
 
+body {
+  background-image: url('/butterflyBackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .content {
-  margin-left: 160px;
+  /* margin-left: 160px; */
   padding: 0px 10px;
   flex: 1;
 }
-
+/* 
 .main {
   display: grid;
   place-items: center;
-}
+} */
 
 img {
   width: 30vw;
@@ -53,12 +62,25 @@ img {
     padding-top: 20px;
 
 }
-.App {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+
+#create{
+  /* padding: 5em; */
+  display: grid;
+  place-items: center;
+  padding-top: 5em;
+  padding-bottom: 20em;
+
 }
-.navbar1{
+
+.main {
+  display: grid;
+  place-items: center;
+  background-color: rgba(119,198,245,0.3);
+  margin: 0 10em;
+  padding-top: 5em;
+}
+
+/* .navbar1{
   display: flex;
   justify-content: flex-end;
-}
+} */
