@@ -28,11 +28,16 @@ code {
 }
 
 body {
-
+  background-image: url('/butterflyBackground.jpg');
+  height: 100vh;
+  width: 100vw;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+
+
 }
+
 
 .content {
   /* margin-left: 160px; */
@@ -46,14 +51,13 @@ body {
 } */
 
 img {
-  width: 30vw;
+  width: 50vw;
   height: 30vh;
 }
 
 
 .App {
   display: flex;
-  background-image: url('/butterflyBackground.jpg');
   min-height: 100vh;
   flex-direction: column;
 }
@@ -66,15 +70,21 @@ img {
   padding-bottom: 20em;
 
 }
-
+iframe {
+  width: 50vw;
+  height: 30vh;
+}
 .main {
   display: grid;
   place-items: center;
   background-color: rgba(119,198,245,0.3);
-  margin: 0 10em;
+  margin: 0 5em;
   padding-top: 5em;
 }
 
+#update{
+  margin-bottom: 2em;
+}
 .navbar1{
   display: flex;
   justify-content: flex-end;
@@ -91,6 +101,26 @@ img {
 }
 .sign-in input{
   /* box-shadow: 3px 5px #888888; */
+}
+.caption{
+  display: flex;
+  padding-top: 0.3em;
+  color: white;
+  width: 50vw;
+
+}
+#changes {
+    padding-top: 1em;
+  padding-bottom: 2em;
+}
+.caption < p {
+  flex-wrap: wrap;
+
+}
+
+.post{
+padding: 5em;
+  margin: 5em;
 }
 input[type='submit']{
   margin: 20px auto;

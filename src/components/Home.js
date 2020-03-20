@@ -32,7 +32,8 @@ class Home extends React.Component {
       posts: [],
       username: "",
       post: null,
-      showForm: true
+      showForm: true,
+      comments: []
     };
     this.deletePost = this.deletePost.bind(this);
     this.getPosts = this.getPosts.bind(this);
@@ -176,7 +177,7 @@ class Home extends React.Component {
   async handleUpdateComments(event, post, comment) {
     event.preventDefault();
     console.log(post._id);
-    let copyComments = [...this.state.post.comments];
+    let copyComments = [...post.comments];
     console.log(copyComments);
     copyComments.push(comment);
     try {
@@ -216,10 +217,10 @@ class Home extends React.Component {
     return (
       <div className="App">
         {this.state.showForm ? (
-          <div>
+          <div >
             {this.state.posts.map(post => {
               return (
-                <div>
+                <div class = 'border border-primary rounded post'>
                   {post.image ? <img src={post.image}></img> : ""}
 
                   {post.video ? (
@@ -235,6 +236,8 @@ class Home extends React.Component {
                   <div>
                     <div class="thoughts">
                       <h2 onClick={() => this.getPost(post)}>{post.title.toUpperCase()}</h2>
+
+
                       <div
                         onClick={() => {
                           this.toggleLikes(post);
@@ -242,13 +245,15 @@ class Home extends React.Component {
                       >
                         {post.likes ? "❤️" : "🤍"}
                       </div>
+
                     </div>
+                      <div class = 'caption'>  <p>{post.caption}</p></div>
                     <Show
                       post={post}
                       handleUpdateComments={this.handleUpdateComments}
                     />
                   </div>
-
+                  <div id='changes'>
                   <button
                     type="button"
                     class="btn btn-dark"
@@ -270,6 +275,7 @@ class Home extends React.Component {
                     delete
                   </button>
                 </div>
+              </div>
               );
             })}
           </div>
