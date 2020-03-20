@@ -28,7 +28,7 @@ code {
 }
 
 body {
-  background-image: url('/butterflyBackground.jpg');
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -53,6 +53,7 @@ img {
 
 .App {
   display: flex;
+  background-image: url('/butterflyBackground.jpg');
   min-height: 100vh;
   flex-direction: column;
 }
