@@ -31,17 +31,19 @@ class Update extends Component {
   }
   render() {
     return (
-      <div class="text-primary">
-        <h1>Update Form</h1>
-        <form
+      <div id = "no" >
+            <div id = 'mainUpdate' >
 
+
+        <form class='create-form'
           onSubmit={event => {
             this.props.handleUpdatePost(event, this.state);
             this.props.toggleForm();
           }}
         >
+
           <div class="form-group">
-            <label htmlFor="title">title</label>
+            <label htmlFor="title">Title</label>
             <input
               class="form-control"
               type="text"
@@ -53,19 +55,20 @@ class Update extends Component {
           </div>
 
           <div class="form-group">
-            <label htmlFor="image">image</label>
+            <label htmlFor="image">Image</label>
             <input
               class="form-control"
               type="text"
               id="image"
               name="image"
+                placeholder="Upload Your Image"
               onChange={this.handleChange}
               value={this.state.image}
             />
           </div>
 
           <div class="form-group">
-            <label htmlFor="video">video</label>
+            <label htmlFor="video">Video</label>
             <input
               class="form-control"
               type="text"
@@ -78,7 +81,7 @@ class Update extends Component {
           </div>
 
           <div class="form-group">
-            <label htmlFor="caption">caption</label>
+            <label htmlFor="caption">Caption</label>
             <input
               class="form-control"
               type="text"
@@ -88,10 +91,12 @@ class Update extends Component {
               value={this.state.caption}
               placeholder="put your caption"
             />
+
           </div>
-          <input class="form-control" type="submit" value="submit" />
+        <input  id= "submit1" class="btn  btn-primary" type="submit" value="Submit" />
         </form>
       </div>
+    </div>
     );
   }
 }

@@ -78,12 +78,11 @@ class New extends React.Component {
 
   render() {
     return (
-      <div class="text-primary sign-in-div" id="create">
-        <h1>New Post</h1>
+      <div class="text-primary " class="create">
         <div >
           {this.renderRedirect()}
         <div>
-        <form class='sign-in'>
+        <form class='create-form'>
           <div class="form-group">
             <label htmlFor="title">Title</label>
             <input

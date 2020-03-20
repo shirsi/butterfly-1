@@ -63,7 +63,7 @@ class Signin extends Component {
       <div class="sign-in-div">
         {this.state.signin ? (
           <div>
-            <h1>Welcome {this.state.username} !</h1>
+            <h1 id = 'welcome'>Welcome {this.state.username} !</h1>
             <div>
               <Home />
             </div>
