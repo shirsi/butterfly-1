@@ -134,9 +134,8 @@ class New extends React.Component {
             class="btn btn-primary"
             type="submit"
             onClick={() => {
-              this.setRedirect()
               this.handleSubmit();
-              
+              this.setRedirect();
             }}
           >
             Submit

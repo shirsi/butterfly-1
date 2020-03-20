@@ -176,7 +176,7 @@ class Home extends React.Component {
   async handleUpdateComments(event, post, comment) {
     event.preventDefault();
     console.log(post._id);
-    let copyComments = [...this.state.post.comments];
+    let copyComments = [...post.comments];
     console.log(copyComments);
     copyComments.push(comment);
     try {
