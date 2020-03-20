@@ -14,12 +14,14 @@ let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
+} else {
+  baseURL = "https://butterflyeffect-1.herokuapp.com/"
 }
 
 class App extends React.Component {
   render() {
     return (
-      
+
       <Router>
         <Navigation />
         <div className="main">
