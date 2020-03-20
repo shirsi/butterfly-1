@@ -1,8 +1,5 @@
 import React from "react";
-import New from "./New.js";
-import Post from "./Post.js";
-// import Signup from './Signup'
-// import Signin from './Signin'
+import Update from "./Update";
 import Show from "./Show";
 
 /*
@@ -35,18 +32,15 @@ class Home extends React.Component {
       posts: [],
       username: "",
       post: null,
-      show: false
+      showForm: true
     };
-    this.handleAddPost = this.handleAddPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
     this.getPosts = this.getPosts.bind(this);
     this.handleUpdatePost = this.handleUpdatePost.bind(this);
     this.handleSignin = this.handleSignin.bind(this);
     this.handleUpdateComments = this.handleUpdateComments.bind(this);
     this.toggleLikes = this.toggleLikes.bind(this);
-    this.toggleShow = this.toggleShow.bind(this);
-
-    // this.getCurrentUser = this.getCurrentUser.bind(this)
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   /*
@@ -84,35 +78,11 @@ class Home extends React.Component {
     this.setState({ post: post });
   }
 
-  /*
-       ********************************************************
-                   ADDS NEW POST
-       ********************************************************
-       */
-
-  handleAddPost(post) {
-    const copyPosts = [post, ...this.state.posts];
-    console.log(copyPosts);
-    this.setState({
-      posts: copyPosts,
-      title: "",
-      media: "",
-      caption: ""
-    });
-  }
-
   handleSignin(user) {
     this.setState({
       username: user
     });
   }
-
-  /*
-       ********************************************************
-                 Comments
-       ********************************************************
-       */
-
   /*
      ********************************************************
               update POSTS
@@ -149,7 +119,6 @@ class Home extends React.Component {
   //     */
 
   async toggleLikes(post) {
-    // console.log(post)
     try {
       let response = await fetch(`${baseURL}/butterfly/${post._id}`, {
         method: "PUT",
@@ -161,18 +130,11 @@ class Home extends React.Component {
 
       let updatedPost = await response.json();
 
-      // console.log(updatedPost)
-
       const foundPost = this.state.posts.findIndex(
         postFound => postFound._id === post._id
       );
-      // console.log(foundPost);
-
       const copyPosts = [...this.state.posts];
-      // console.log(copyPosts);
       copyPosts[foundPost].likes = updatedPost.likes;
-
-      // console.log(updatedPost);
       this.setState({
         posts: copyPosts
       });
@@ -244,73 +206,80 @@ class Home extends React.Component {
     }
   }
 
-  toggleShow() {
-    this.setState({ show: !this.state.show });
+  toggleForm() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
   }
 
   render() {
     return (
       <div className="App">
-        {/* <Signup baseURL={baseURL}/>
-    {
-      this.state.username
-      ?
-      <h1>Hi, {this.state.username}</h1>
-      :
-      <Signin
-      handleSignin = {this.handleSignin}
-      baseURL={baseURL}
-      username={this.state.username}/>
-    } */}
-          <New baseURL={baseURL} handleAddPost={this.handleAddPost} />
+        {this.state.showForm ? (
+          <div>
+            {this.state.posts.map(post => {
+              return (
+                <div>
+                  {post.image ? <img src={post.image}></img> : ""}
 
-        {this.state.posts.map(post => {
-          return (
-            <div class="content">
-              <div key={post._id}>
-                {post.image ? <img src={post.image}></img> : ""}
-                {post.video ? (
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={`${post.video}?autoplay=1`}
-                    frameBorder="0"
-                  ></iframe>
-                ) : (
-                  ""
-                )}
-                <h4>{post.title}</h4>
-                <p>{post.caption}</p>
-              </div>
-              <div
-                onClick={() => {
-                  this.toggleLikes(post);
-                }}
-              >
-                {post.likes ? "❤️" : "🤍"}
-              </div>
-              <div>
-                <button onClick={() => this.toggleShow()}>View Post</button>
-                {this.state.show ? (
-                  <Show
-                    post={post}
-                    handleUpdateComments={this.handleUpdateComments}
-                  />
-                ) : null}
-              </div>
-              <Post post={post} handleUpdatePost={this.handleUpdatePost} />
-              <button
-                type="button"
-                class="btn btn-danger"
-                onClick={() => {
-                  this.deletePost(post._id);
-                }}
-              >
-                delete
-              </button>
-            </div>
-          );
-        })}
+                  {post.video ? (
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={`${post.video}?autoplay=1`}
+                      frameBorder="0"
+                    ></iframe>
+                  ) : (
+                    ""
+                  )}
+                  <div>
+                    <div class="thoughts">
+                      <h2 onClick={() => this.getPost(post)}>{post.title.toUpperCase()}</h2>
+                      <div
+                        onClick={() => {
+                          this.toggleLikes(post);
+                        }}
+                      >
+                        {post.likes ? "❤️" : "🤍"}
+                      </div>
+                    </div>
+                    <Show
+                      post={post}
+                      handleUpdateComments={this.handleUpdateComments}
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    class="btn btn-dark"
+                    onClick={() => {
+                      this.toggleForm();
+                      this.getPost(post);
+                    }}
+                  >
+                    Update
+                  </button>
+
+                  <button
+                  type="button"
+                  class="float-right btn btn-danger btn-sm"
+                    onClick={() => {
+                      this.deletePost(post._id);
+                    }}
+                  >
+                    delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <Update
+            handleUpdatePost={this.handleUpdatePost}
+            post={this.state.post}
+            toggleForm={this.toggleForm}
+          />
+        )}
       </div>
     );
   }

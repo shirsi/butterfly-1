@@ -1,37 +1,23 @@
-import React from 'react'
-// import New from './components/New.js'
-// import Post from './components/Post.js'
-import Signup from './components/Signup'
-import Signin from './components/Signin.js'
-// import Show from './components/Show'
-import Home from './components/Home.js'
-import Discover from './components/Discover.js'
-import Navigation from './components/Navigation.js'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import React from "react";
+import New from "./components/New.js";
+import Signup from "./components/Signup";
+import Signin from "./components/Signin.js";
+import Home from "./components/Home.js";
+import Navigation from "./components/Navigation.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 /*
 ********************************************************
           Define
 ********************************************************
 */
-let baseURL = process.env.REACT_APP_BASEURL
+let baseURL = process.env.REACT_APP_BASEURL;
 
-if(process.env.NODE_ENV === 'development'){
-  baseURL = 'http://localhost:3003'
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
 }
 
-// // else {
-// //
-// //  baseURL = ''
-// // }
-
-// console.log(baseURL);
-// /*
-// ********************************************************
-//           Begin Class
-// ********************************************************
-// */
-
 class App extends React.Component {
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   constructor(props){
@@ -639,6 +625,30 @@ class App extends React.Component {
   )}
   
 
+=======
+  render() {
+    return (
+      <Router>
+        <Navigation />
+        <div className="main">
+          <Route path="/" exact component={Home} />
+          <Route
+            path="/newpost"
+            render={props => <New {...props} baseURL={baseURL} />}
+          />
+          <Route
+            path="/login"
+            render={props => <Signin {...props} baseURL={baseURL} />}
+          />
+          <Route
+            path="/signup"
+            render={props => <Signup {...props} baseURL={baseURL} />}
+          />
+        </div>
+      </Router>
+    );
+  }
+>>>>>>> dbc33c652610009429063fc5f8a64f0b440b1bfb
 }
 
 export default App;
