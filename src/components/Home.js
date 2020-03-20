@@ -1,4 +1,3 @@
-
 import React from "react";
 import Update from "./Update";
 import Show from "./Show";
@@ -15,12 +14,6 @@ if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
 }
 
-// else {
-//
-//  baseURL = ''
-// }
-
-console.log(baseURL);
 /*
 ********************************************************
           Begin Class

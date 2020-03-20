@@ -88,7 +88,7 @@ iframe {
 .cw{
 
 margin:  0 7em;
-font-size: 20px;
+font-size: 15px;
 
 }
 .sign-in{
@@ -102,9 +102,7 @@ font-size: 20px;
     height: 100vh;
   padding-bottom: 20em;
 }
-.sign-in input{
-  /* box-shadow: 3px 5px #888888; */
-}
+
 .caption{
   display: flex;
   padding-top: 0.3em;
