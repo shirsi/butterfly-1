@@ -12,7 +12,9 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-
+h2{
+  color: white;
+}
 
 .func-button{
   padding-top: 2em;
@@ -25,16 +27,23 @@ code {
     monospace;
 }
 
+body {
+  background-image: url('/butterflyBackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .content {
-  margin-left: 160px;
+  /* margin-left: 160px; */
   padding: 0px 10px;
   flex: 1;
 }
-
+/*
 .main {
   display: grid;
   place-items: center;
-}
+} */
 
 img {
   width: 30vw;
@@ -47,25 +56,41 @@ img {
   min-height: 100vh;
   flex-direction: column;
 }
+
+#create{
+  /* padding: 5em; */
+  display: grid;
+  place-items: center;
+  padding-top: 5em;
+  padding-bottom: 20em;
+
+}
+
+.main {
+  display: grid;
+  place-items: center;
+  background-color: rgba(119,198,245,0.3);
+  margin: 0 10em;
+  padding-top: 5em;
+}
+
 .navbar1{
   display: flex;
   justify-content: flex-end;
 }
 .sign-in{
-  margin-top: 70px;
+  color: white;
   border: 0.05em solid silver;
-  padding: 50px;
+  padding: 4em;
 
-  box-shadow: 5px 10px #888888;
   border-radius: 5%;
-
-
-
+}
+.sign-in-div{
+  padding-bottom: 20em;
 }
 .sign-in input{
-  box-shadow: 3px 5px #888888;
+  /* box-shadow: 3px 5px #888888; */
 }
 input[type='submit']{
   margin: 20px auto;
-  box-shadow: 2px 5px #888888;
 }
