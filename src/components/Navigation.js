@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-class Navigataion extends React.Component {
+class Navigation extends React.Component {
 
   render () {
     return (
@@ -26,4 +26,4 @@ class Navigataion extends React.Component {
   }
 }
 
-export default Navigataion
+export default Navigation

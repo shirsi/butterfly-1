@@ -60,31 +60,44 @@ class Signin extends Component {
   }
   render() {
     return (
-      <div class='sign-in-div'>
-      {
-        this.state.signin
-        ?  <div>
-        <h1>Welcome {this.state.username} !</h1>
-        <div><Home /></div>
-        </div>
-        :
-
-        <form class='sign-in'onSubmit={
-          this.handleSubmit
-        }>
-        <div class="form-group ">
-          <label htmlFor="username">Username</label>
-          <input class="form-control" type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} placeholder="Username"/>
-        </div>
-        <div class="form-group">
-          <label htmlFor="password">Password</label>
-          <input class='form-control'type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password"/>
-
-            <input class="btn btn-primary" type='submit' value='Sign In'/>
+      <div class="sign-in-div">
+        {this.state.signin ? (
+          <div>
+            <h1 id = 'welcome'>Welcome {this.state.username} !</h1>
+            <div>
+              <Home />
             </div>
-        </form>
-      }
+          </div>
+        ) : (
+          <form class="sign-in" onSubmit={this.handleSubmit}>
+            <div class="form-group ">
+              <label htmlFor="username">Username</label>
+              <input
+                class="form-control"
+                type="text"
+                id="username"
+                name="username"
+                onChange={this.handleChange}
+                value={this.state.username}
+                placeholder="Username"
+              />
+            </div>
+            <div class="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                onChange={this.handleChange}
+                value={this.state.password}
+                placeholder="Password"
+              />
 
+              <input class="btn btn-primary" type="submit" value="Sign In" />
+            </div>
+          </form>
+        )}
       </div>
     );
   }

@@ -52,36 +52,84 @@ body {
 
 img {
   width: 50vw;
-  height: 30vh;
+  height: 50vh;
+  margin-bottom: 0.7em;
 }
 
-
+#welcome{
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 8em;
+  display: grid;
+  place-items: center;
+}
 .App {
   display: flex;
   min-height: 100vh;
+  background-color: rgba(119,198,245,0.3);
   flex-direction: column;
 }
 
-#create{
-  /* padding: 5em; */
-  display: grid;
-  place-items: center;
-  padding-top: 5em;
-  padding-bottom: 20em;
+
+.updateDiv{
+  height: 100vh;
+  width: 80vw;
 
 }
+
+.text-primary{
+  color: white;
+  border: 0.05em solid silver;
+  padding: 0 4em;
+
+  border-radius: 5%
+}
+.create{
+
+  height: 100vh;
+  padding-bottom: 20em;
+  /* padding: 5em; */
+  /* display: grid;
+  place-items: center;
+  padding-top: 5em;
+  padding-bottom: 20em; */
+
+}
+
+#no{
+  padding: 20em;
+  padding-top: 5em;
+  padding-bottom: 35em;
+}
+.create-form{
+
+  color: white;
+  border: 0.05em solid silver;
+
+  padding: 4em;
+  padding-top: 2em;
+  border-radius: 5%
+}
+.create-form input {
+  padding: 0 3em;
+}
+
+
 iframe {
   width: 50vw;
-  height: 30vh;
+  height: 50vh;
+  margin-bottom: 0.7em;
 }
 .main {
   display: grid;
   place-items: center;
-  background-color: rgba(119,198,245,0.3);
   margin: 0 5em;
   padding-top: 5em;
 }
 
+p{
+  font-weight:600;
+}
 #update{
   margin-bottom: 2em;
 }
@@ -99,11 +147,11 @@ font-size: 20px;
   border-radius: 5%;
 }
 .sign-in-div{
-    height: 100vh;
+  height: 100vh;
   padding-bottom: 20em;
 }
 .sign-in input{
-  /* box-shadow: 3px 5px #888888; */
+  /* box-shadow: 2px 3px #2222B6; */
 }
 .caption{
   display: flex;
@@ -112,8 +160,9 @@ font-size: 20px;
   width: 50vw;
 
 }
+
 #changes {
-    padding-top: 1em;
+  padding-top: 1em;
   padding-bottom: 2em;
 }
 .caption < p {
@@ -128,3 +177,14 @@ font-size: 20px;
 input[type='submit']{
   margin: 20px auto;
 }
+
+#submit1 {
+padding:0.8em  1em;
+}
+.mainUpdate h1 {
+  text-align: center;
+}
+
+ label{
+   font-size: 2em;
+ }

@@ -78,11 +78,11 @@ class New extends React.Component {
 
   render() {
     return (
-      <div class="text-primary" id="create">
+      <div class="text-primary " class="create">
         <div >
           {this.renderRedirect()}
-        <div class='sign-in-div'>
-        <form class='sign-in'>
+        <div>
+        <form class='create-form'>
           <div class="form-group">
             <label htmlFor="title">Title</label>
             <input
@@ -135,9 +135,8 @@ class New extends React.Component {
             class="btn btn-primary"
             type="submit"
             onClick={() => {
-              this.setRedirect()
               this.handleSubmit();
-
+              this.setRedirect();
             }}
           >
             Submit

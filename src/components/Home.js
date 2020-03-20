@@ -1,4 +1,3 @@
-
 import React from "react";
 import Update from "./Update";
 import Show from "./Show";
@@ -15,12 +14,6 @@ if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
 }
 
-// else {
-//
-//  baseURL = ''
-// }
-
-console.log(baseURL);
 /*
 ********************************************************
           Begin Class
@@ -240,7 +233,7 @@ class Home extends React.Component {
                       <h2 onClick={() => this.getPost(post)}>{post.title.toUpperCase()}</h2>
 
 
-                      <div
+                      <div id= 'likes'
                         onClick={() => {
                           this.toggleLikes(post);
                         }}
@@ -258,7 +251,7 @@ class Home extends React.Component {
                   <div id='changes'>
                   <button
                     type="button"
-                    class="btn btn-dark"
+                    class="btn btn-lg btn-dark"
                     onClick={() => {
                       this.toggleForm();
                       this.getPost(post);
@@ -269,7 +262,7 @@ class Home extends React.Component {
 
                   <button
                   type="button"
-                  class="float-right btn btn-danger btn-sm"
+                  class="float-right btn btn-danger btn-lg"
                     onClick={() => {
                       this.deletePost(post._id);
                     }}
