@@ -70,14 +70,19 @@ class Signin extends Component {
         <div><Home /></div>
         </div>
         :
-        <form onSubmit={
+
+        <form class='sign-in'onSubmit={
           this.handleSubmit
         }>
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} placeholder="username"/>
+        <div class="form-group ">
+          <label htmlFor="username">User Name</label>
+          <input class="form-control" type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} placeholder="username"/>
+        </div>
+        <div class="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="password"/>
-          <input type='submit' value='sign in'/>
+          <input class='form-control'type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="password"/>
+        </div>
+          <input class="btn btn-primary" type='submit' value='Sign In'/>
         </form>
       }
 

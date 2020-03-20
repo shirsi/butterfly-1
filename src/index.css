@@ -41,18 +41,7 @@ img {
   height: 30vh;
 }
 
-.sticky {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
 
-}
 .App {
   display: flex;
   min-height: 100vh;
@@ -61,4 +50,22 @@ img {
 .navbar1{
   display: flex;
   justify-content: flex-end;
+}
+.sign-in{
+  margin-top: 70px;
+  border: 0.05em solid silver;
+  padding: 50px;
+
+  box-shadow: 5px 10px #888888;
+  border-radius: 5%;
+
+
+
+}
+.sign-in input{
+  box-shadow: 3px 5px #888888;
+}
+input[type='submit']{
+  margin: 20px auto;
+  box-shadow: 2px 5px #888888;
 }
