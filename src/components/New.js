@@ -79,9 +79,10 @@ class New extends React.Component {
   render() {
     return (
       <div class="text-primary" id="create">
-        <div>
+        <div >
           {this.renderRedirect()}
-        <form>
+        <div class='sign-in-div'>
+        <form class='sign-in'>
           <div class="form-group">
             <label htmlFor="title">Title</label>
             <input
@@ -140,6 +141,7 @@ class New extends React.Component {
             Submit
           </button>
         </form>
+        </div>
         </div>
 
       </div>

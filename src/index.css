@@ -85,9 +85,11 @@ iframe {
 #update{
   margin-bottom: 2em;
 }
-.navbar1{
-  display: flex;
-  justify-content: flex-end;
+.cw{
+
+margin:  0 7em;
+font-size: 20px;
+
 }
 .sign-in{
   color: white;
@@ -97,6 +99,7 @@ iframe {
   border-radius: 5%;
 }
 .sign-in-div{
+    height: 100vh;
   padding-bottom: 20em;
 }
 .sign-in input{
@@ -115,7 +118,7 @@ iframe {
 }
 
 .post{
-padding: 5em;
+  padding: 5em;
   margin: 5em;
 }
 input[type='submit']{
