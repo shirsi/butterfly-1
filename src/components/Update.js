@@ -34,6 +34,7 @@ class Update extends Component {
       <div class="text-primary">
         <h1>Update Form</h1>
         <form
+
           onSubmit={event => {
             this.props.handleUpdatePost(event, this.state);
             this.props.toggleForm();

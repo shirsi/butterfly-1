@@ -30,17 +30,19 @@ class Comment extends React.Component {
             });
           }}
         >
-          <label htmlFor="comments">Add Comment</label>
+         <div class="form-group">
+
           <input
             type="textbox"
             id="comments"
+            class="form-control"
             name="comments"
             onChange={this.handleChange}
             value={this.state.comments}
-            placeholder="write your comment..."
+            placeholder="Comment..."
           />
-
-          <input type="submit" value="add comment" />
+      </div>
+          <input class="btn btn-primary" type="submit" value="Add Comment" />
         </form>
       </div>
     );

@@ -62,7 +62,7 @@ class New extends React.Component {
     } catch (e) {
       console.error(e);
     }
-    
+
   }
   setRedirect = () => {
     this.setState({
@@ -135,7 +135,6 @@ class New extends React.Component {
             type="submit"
             onClick={() => {
               this.handleSubmit();
-              this.setRedirect();
             }}
           >
             Submit

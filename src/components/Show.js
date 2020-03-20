@@ -12,6 +12,7 @@ class Show extends React.Component {
     return (
       <div>
         <button
+          id= 'update'
           class="btn btn-primary togglecomments"
           type="button"
           data-toggle="collapse"
@@ -23,7 +24,7 @@ class Show extends React.Component {
         </button>
         <div class="collapse" id={"collapseExample"}>
           <div class="card card-body text-white bg-dark">
-            <h4>{this.props.post.caption}</h4>
+
             <h6>
               <span>Likes:</span>
               {this.props.post.likes}
