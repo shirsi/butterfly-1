@@ -53,6 +53,7 @@ body {
 img {
   width: 50vw;
   height: 50vh;
+  margin-bottom: 0.7em;
 }
 
 #welcome{
@@ -117,6 +118,7 @@ img {
 iframe {
   width: 50vw;
   height: 50vh;
+  margin-bottom: 0.7em;
 }
 .main {
   display: grid;
