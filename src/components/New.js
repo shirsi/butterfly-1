@@ -38,7 +38,7 @@ class New extends React.Component {
     });
   }
   async handleSubmit() {
-    this.setRedirect()
+    this.setRedirect();
     try {
       let response = await fetch(this.props.baseURL + "/butterfly", {
         method: "POST",
@@ -62,7 +62,6 @@ class New extends React.Component {
     } catch (e) {
       console.error(e);
     }
-
   }
   setRedirect = () => {
     this.setState({
@@ -79,72 +78,71 @@ class New extends React.Component {
   render() {
     return (
       <div class="text-primary " class="create">
-        <div >
-          {this.renderRedirect()}
         <div>
-        <form class='create-form'>
-          <div class="form-group">
-            <label htmlFor="title">Title</label>
-            <input
-              class="form-control"
-              type="text"
-              id="title"
-              name="title"
-              onChange={this.handleChange}
-              value={this.state.title}
-              placeholder="Name Your Post"
-            />
+          {this.renderRedirect()}
+          <div>
+            <form class="create-form">
+              <div class="form-group">
+                <label htmlFor="title">Title</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="title"
+                  name="title"
+                  onChange={this.handleChange}
+                  value={this.state.title}
+                  placeholder="Name Your Post"
+                />
+              </div>
+              <div class="form-group">
+                <label htmlFor="caption">Caption</label>
+                <textarea
+                  class="form-control"
+                  type="text"
+                  id="caption"
+                  name="caption"
+                  onChange={this.handleChange}
+                  value={this.state.caption}
+                  placeholder="Put Your Caption"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label htmlFor="image">Image</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="image"
+                  name="image"
+                  onChange={this.handleChange}
+                  value={this.state.image}
+                  placeholder="Upload Your Image"
+                />
+              </div>
+              <div class="form-group">
+                <label htmlFor="video">Video</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="video"
+                  name="video"
+                  onChange={this.handleChange}
+                  value={this.state.video}
+                  placeholder="Upload Your Video"
+                />
+              </div>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                onClick={() => {
+                  this.handleSubmit();
+                  this.setRedirect();
+                }}
+              >
+                Submit
+              </button>
+            </form>
           </div>
-          <div class="form-group">
-            <label htmlFor="caption">Caption</label>
-            <textarea
-              class="form-control"
-              type="text"
-              id="caption"
-              name="caption"
-              onChange={this.handleChange}
-              value={this.state.caption}
-              placeholder="Put Your Caption"
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label htmlFor="image">Image</label>
-            <input
-              class="form-control"
-              type="text"
-              id="image"
-              name="image"
-              onChange={this.handleChange}
-              value={this.state.image}
-              placeholder="Upload Your Image"
-            />
-          </div>
-          <div class="form-group">
-            <label htmlFor="video">Video</label>
-            <input
-              class="form-control"
-              type="text"
-              id="video"
-              name="video"
-              onChange={this.handleChange}
-              value={this.state.video}
-              placeholder="Upload Your Video"
-            />
-          </div>
-          <button
-            class="btn btn-primary"
-            type="submit"
-            onClick={() => {
-              this.handleSubmit();
-              this.setRedirect();
-            }}
-          >
-            Submit
-          </button>
-        </form>
         </div>
-        </div>
-
       </div>
     );
   }

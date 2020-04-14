@@ -222,7 +222,7 @@ class Home extends React.Component {
                     <iframe
                       width="560"
                       height="315"
-                      src={`${post.video}?autoplay=1`}
+                      src={`${post.video}?autoplay=0`}
                       frameBorder="0"
                     ></iframe>
                   ) : (
